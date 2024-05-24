@@ -5,6 +5,7 @@ import img3 from "../assets/img3.png";
 import img4 from "../assets/img4.png";
 import img5 from "../assets/img5.png";
 import right from "../assets/arrowright.png";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import left from "../assets/arrowleft.png";
 import mobile from "../assets/mobile.png";
 import { useNavbarContext } from "./NavbarContext";
@@ -18,6 +19,7 @@ import fav from "../assets/love.png";
 import mask from "../assets/mask.png";
 import covid from "../assets/covid.png";
 import { useState, useRef } from "react";
+import { Carousel } from "react-responsive-carousel";
 
 function Sliders() {
   const [images] = useState([
@@ -34,7 +36,10 @@ function Sliders() {
     screen1,
   ]);
   const mobiles = [screen2, screen1, mobile, screen3, screen4];
-  const screens = [mask, covid, covid, mask];
+  const screens = [
+    [mask, covid],
+    [covid, mask],
+  ];
   const { pop } = useNavbarContext();
   const [showAll, setShowAll] = useState(screens.slice(0, screens.length - 1));
   const [curIndex, setCurIndex] = useState(0);
@@ -80,7 +85,7 @@ function Sliders() {
     }
   };
   return (
-    <div className="ml-20">
+    <div className="pl-20">
       <div className="flex flex-col justify-center gap-10 mt-5 ">
         {/* <button className="text-xl "><img src={covid} className='w-24'/></button> */}
 
@@ -88,28 +93,37 @@ function Sliders() {
           <div className="flex flex-row justify-center text-fonts font-semibold text-3xl items-center">
             <p>Special offers</p>
           </div>
-          <div className="flex justify-end mr-20 gap-2">
+          {/* <div className="flex justify-end mr-20 gap-2">
             <button className="bg-foots rounded-full p-2 ">
               <img src={left} className="w-4 h-4" onClick={handlePrevious} />
             </button>
             <button className="bg-foots rounded-full px-2 py-2">
               <img src={right} className="w-4 h-4" onClick={handleNext} />
             </button>
-          </div>
+          </div> */}
         </div>
-        <div className=" ml-20 pr-20  w-full flex overflow-x-scroll snap-x snap-mandatory gap-10  ">
-          <div className="flex  w-full flex-row gap-36 ">
-            {showAll.map((items, key) => (
-              <div className="transition ease-in-out delay-150 hover:-translate-y-2 hover:scale-110  duration-500">
+        <Carousel
+          className="w-[90%] mx-auto border-x"
+          infiniteLoop
+          swipeable
+          useKeyboardArrows
+          showArrows
+          showStatus={false}
+          showIndicators
+          showThumbs={false}
+        >
+          {screens.map((items) => (
+            <div>
+              {items.map((item) => (
                 <img
-                  src={items}
-                  className="w-96 rounded-lg p-2 "
+                  src={item}
+                  className="rounded-lg p-2"
                   style={{ width: "70vh" }}
                 />
-              </div>
-            ))}
-          </div>
-        </div>
+              ))}
+            </div>
+          ))}
+        </Carousel>
 
         {/* <button className="text-xl ml-4"><img src={right} className='w-24'/></button> */}
       </div>
@@ -230,7 +244,7 @@ function Sliders() {
         </div>
       </div>
       <div className="w-fit">
-        <div className="flex  justify-center  items-center w-fit   mt-32">
+        <div className="flex justify-center items-center w-fit mt-32">
           {mobiles.map((item, key) => {
             return (
               <div key={key} className=" mr-4">

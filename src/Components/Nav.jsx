@@ -75,48 +75,44 @@ function Nav({ topDivRef }) {
             </div>
           </div>
         </ul>
-        <div className="flex flex-row   items-center h-fit bg-white text-black border-2 border-grey-500 shadow-lg">
-          <div className=" w-fit ml-10">
-            <div className="relative" style={{ width: "43rem" }}>
-              <select
-                className="bg-inp pl-4 text-lg h-full  font-sans rounded-md rounded-l-full focus:outline-none "
-                onChange={(e) => setSelectedOption(e.target.value)}
-                value={selectedOption}
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  zIndex: 10,
-                  width: "11rem",
-                }}
-              >
-                <option value="">All category</option>
-                <option value="Option1">Medicine</option>
-                <option value="Option2">Drugs</option>
-                <option value="Option3">Allergies</option>
+        <div className="flex flex-row  items-center h-fit bg-white text-black border-2 border-grey-500 shadow-lg">
+          <div
+            className="flex items-center  justify-center ml-24"
+            style={{ width: "100vh" }}
+          >
+            <div
+              className="relative flex items-center "
+              style={{ width: "900vh" }}
+            >
+              <select className="h-fit py-2 pl-3 pr-8 text-gray-500 bg-white border border-gray-300 rounded-l-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <option>All categories</option>
+                {/* Add more options here */}
               </select>
-
               <input
                 type="text"
-                className="relative  text-black  pr-12 py-2 rounded-full bg-inp focus:outline-none"
-                style={{ paddingLeft: "1100px", width: "23rem" }}
+                placeholder="Search for products..."
+                className="w-full py-2 px-4 border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
-              <p
-                className="absolute -top-1 text-gray-400 left-48 font-extralight text-4xl"
-                style={{ zIndex: 10 }}
-              >
-                |
-              </p>
+              <button className="absolute right-0 flex items-center justify-center h-full px-4 py-2 bg-blue-500 text-white rounded-r-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M21 21l-4.35-4.35m1.85-2.15A7 7 0 1113 5a7 7 0 015 12.35z"
+                  />
+                </svg>
+              </button>
             </div>
-            <button
-              className="absolute inset-y-0 top-20  flex items-center py-2 px-2 pr-3"
-              style={{ left: "42rem" }}
-            >
-              <img src={Search} className="w-fit h-6" />
-            </button>
           </div>
           <div className="">
-            <ul className="list-none text-lg  ml-32 font-thin">
+            <ul className="list-none text-lg  ml-20 font-thin">
               <div
                 className="flex flex-row gap-10 justify-between text-gray-500    items-center py-2 px-2 "
                 style={{ fontFamily: "helveticaNeue" }}

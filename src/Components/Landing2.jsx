@@ -1,11 +1,10 @@
 import React, { useState } from "react";
-import slider1 from "../assets/slider1.png";
-import slider2 from "../assets/slider2.png";
-import slider3 from "../assets/slider3.png";
-import slider4 from "../assets/slider4.png";
-import slider5 from "../assets/slider5.png";
+import slider1 from "../assets/1.png";
+import slider2 from "../assets/2.png";
+import slider3 from "../assets/3.png";
+import slider4 from "../assets/4.png";
 
-import bg2 from "../assets/bg2.png";
+import bg2 from "../assets/doc.png";
 import product from "../assets/product.png";
 import { Link, useNavigate } from "react-router-dom";
 import Products from "./Products";
@@ -14,7 +13,7 @@ import Context from "./Content";
 function Landing2() {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
-  const slides = [slider1, slider2, slider3, slider4, slider5];
+  const slides = [slider1, slider2, slider3, slider4];
   const texts = [
     "Boost sales by promoting new and special products.",
     "Receive payments more quickly.",
@@ -28,16 +27,20 @@ function Landing2() {
   return (
     <div className="ml-10 pt-10">
       <div className=" items-center overflow-hidden mx-20">
-        <div className=" flex flex-row  " style={{ width: "500vh" }}>
+        <div
+          className=" flex flex-row ml-8  items-center "
+          style={{ width: "800vh" }}
+        >
           {slides.map((item, key) => (
             <div
               key={key}
-              className="hover:scale-110 transition duration-300 ease-in-out max-w-sm flex justify-center items-center p-2"
+              className="hover:scale-110 h-fit transition duration-300 ease-in-out max-w-sm flex justify-center items-center p-2"
             >
               <img
                 src={item}
                 alt={`Slide ${key}`}
-                className="h-auto max-w-full"
+                className="h-auto "
+                style={{ width: "500vh" }}
               />
             </div>
           ))}
@@ -56,7 +59,7 @@ function Landing2() {
           We've designed a platform especially for you Start saving today.{" "}
         </p>
       </div>
-      <div className="ml-24 flex  flex-row justify-between ">
+      <div className="ml-24 flex items-center flex-row justify-between ">
         <div
           className=" bg-inp mt-10  "
           style={{ width: "200vh", height: "fit-content" }}
@@ -77,8 +80,7 @@ function Landing2() {
             backgroundPosition: "top ",
             backgroundRepeat: "no-repeat",
             width: "100%",
-            height: "80vh",
-            marginTop: 10,
+            height: "85vh",
           }}
         ></div>
       </div>

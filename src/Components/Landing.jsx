@@ -10,7 +10,7 @@ import Product from "./Product";
 import Sliders from "./Sliders";
 function Landing({ topMargin }) {
   return (
-    <div className=" h-fit w-screen ">
+    <div className=" h-fit w-screen">
       <PLefts />
       <div className="h-fit  w-full">
         <div
@@ -24,35 +24,35 @@ function Landing({ topMargin }) {
             marginTop: `${topMargin}px`,
           }}
         >
-          <p className="text-left pt-20 ml-36 overflow-y-hidden text-4xl w-fit">
-            <div className="mb-10 bounce-in-top overflow-y-hidden">
-              <span className="text-8xl mb-20 text-box font-extralight">
+          <p className="text-left pt-20 ml-36 text-4xl text-white w-fit">
+            <div className="mb-10 bounce-in-top overflow-hidden">
+              <span className="text-6xl mb-20 text-white  font-extralight">
                 Your{" "}
               </span>
               <br></br>
             </div>
             <div className="mb-10 bounce-in-top">
-              <span className="font-semibold text-box mb-3 overflow-y-hidden text-7xl">
+              <span className="font-semibold text-white mb-3 text-5xl">
                 Trusted Online
               </span>
               <br></br>
             </div>
             <div className="mb-10 bounce-in-top">
-              <span className="font-semibold text-box overflow-y-hidden mt-5 text-7xl">
+              <span className="font-semibold text-white mt-5 text-5xl">
                 {" "}
                 Market Place
               </span>
               <br></br>
             </div>
             <div>
-              <p className="font-extralight bounce-in-top text-box mb-5">
-                to <span className="font-medium">Buy</span>,
+              <p className="font-extralight bounce-in-top text-white mb-5">
+                to <span className="font-medium ">Buy</span>,
                 <span className="font-medium">SELL</span> and{" "}
                 <span className="font-medium">Bid</span> on{" "}
                 <span className=" font-medium ">Overstock</span>&{" "}
               </p>
             </div>
-            <p className="text-box bounce-in-top font-light">
+            <p className="text-white bounce-in-top font-light">
               Short Date Prescription Medications
             </p>
           </p>
