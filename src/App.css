@@ -40,7 +40,7 @@ body {
   }
   
   .bounce-in-top {
-    animation: bounce-in-top 1s forwards;
+    animation: bounce-in-top 1s  forwards;
   }
   @keyframes scroll-horizontal {
     0% {

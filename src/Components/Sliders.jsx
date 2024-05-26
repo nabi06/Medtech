@@ -18,10 +18,37 @@ import addcart from "../assets/addcart.png";
 import fav from "../assets/love.png";
 import mask from "../assets/mask.png";
 import covid from "../assets/covid.png";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Carousel } from "react-responsive-carousel";
+import Content from "./Content";
 
 function Sliders() {
+  const searchBarRef = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("bounce-in-top");
+          } else {
+            entry.target.classList.remove("bounce-in-top");
+          }
+        });
+      },
+      { threshold: 0.5 } // Adjust threshold as needed
+    );
+
+    if (searchBarRef.current) {
+      observer.observe(searchBarRef.current);
+    }
+
+    return () => {
+      if (searchBarRef.current) {
+        observer.unobserve(searchBarRef.current);
+      }
+    };
+  }, []);
   const [images] = useState([
     img1,
     img2,
@@ -35,11 +62,8 @@ function Sliders() {
     img5,
     screen1,
   ]);
-  const mobiles = [screen2, screen1, mobile, screen3, screen4];
-  const screens = [
-    [mask, covid],
-    [covid, mask],
-  ];
+  const mobiles = [mobile, mobile, mobile, mobile, mobile];
+  const screens = [mask, covid, covid, mask];
   const { pop } = useNavbarContext();
   const [showAll, setShowAll] = useState(screens.slice(0, screens.length - 1));
   const [curIndex, setCurIndex] = useState(0);
@@ -47,19 +71,19 @@ function Sliders() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleNext = () => {
     console.log("prev");
-    const nextInd = curIndex + screens.length - 1;
+    const nextInd = curIndex + 2;
     if (nextInd < images.length) {
-      const nextVisibleImages = screens.slice(nextInd, nextInd + 5);
+      const nextVisibleImages = screens.slice(nextInd, nextInd + 2);
       setShowAll(nextVisibleImages);
       setCurIndex(nextInd);
     }
   };
 
   const handlePrevious = () => {
-    const previousInd = curIndex - screens.length - 1;
+    const previousInd = curIndex - 2;
     console.log("next");
     if (previousInd >= 0) {
-      const previousVisibleImages = screens.slice(previousInd, previousInd + 5);
+      const previousVisibleImages = screens.slice(previousInd, previousInd + 2);
       setShowAll(previousVisibleImages);
       setCurIndex(previousInd);
     }
@@ -93,16 +117,16 @@ function Sliders() {
           <div className="flex flex-row justify-center text-fonts font-semibold text-3xl items-center">
             <p>Special offers</p>
           </div>
-          {/* <div className="flex justify-end mr-20 gap-2">
+          <div className="flex justify-end mr-20 gap-2">
             <button className="bg-foots rounded-full p-2 ">
               <img src={left} className="w-4 h-4" onClick={handlePrevious} />
             </button>
             <button className="bg-foots rounded-full px-2 py-2">
               <img src={right} className="w-4 h-4" onClick={handleNext} />
             </button>
-          </div> */}
+          </div>
         </div>
-        <Carousel
+        {/* <Carousel
           className="w-[90%] mx-auto border-x"
           infiniteLoop
           swipeable
@@ -123,7 +147,14 @@ function Sliders() {
               ))}
             </div>
           ))}
-        </Carousel>
+        </Carousel> */}
+        <div className="flex items-center ml-20 flex-row gap-20 w-full ">
+          {showAll.map((items) => (
+            <div style={{ width: "65vh" }}>
+              <img src={items} className="w-" />
+            </div>
+          ))}
+        </div>
 
         {/* <button className="text-xl ml-4"><img src={right} className='w-24'/></button> */}
       </div>
@@ -201,48 +232,56 @@ function Sliders() {
       <div
         className={
           pop
-            ? " getTouchs w-100% relative h-fit mt-48 mx-10 rounded-md p-10 flex flex-col justify-center"
-            : " getTouchs w-100% relative h-fit mt-48 mx-10 rounded-md p-10 flex flex-col justify-center"
+            ? " getTouchs w-100% relative h-fit mt-48 mx-8 rounded-md p-10 flex flex-col justify-center"
+            : " getTouchs w-100% relative h-fit mt-48 mx-8 rounded-md p-10 flex flex-col justify-center"
         }
       >
-        <div className="border-2  border-white w-3/4 h-80  ml-32 rounded-md">
-          <p className="absolute top-4 z-5 left-96 h-fit bg-box-blue text-white px-4 py-2 rounded-md  text-3xl">
+        <div className="border-2  border-white w-auto h-80  ml-12 rounded-md">
+          <p className="absolute top-4 z-5 left-1/3 h-fit bg-box-blue text-white px-4 py-2 rounded-md  text-3xl">
             Get in touch{" "}
           </p>
-          <div className="ml-10 flex flex-row justify-center gap-10 items-center">
-            <div className="w-fit">
-              <ul className=" text-2xl font-light  w-fit">
-                <li className="w-fit">Manage Inventory</li>
-                <li>Increase cash flow </li>
-                <li>Grow you business</li>
-                <li>Promote products and deals</li>
-              </ul>
-            </div>
-            <div>
-              <div className="flex flex-col gap-5 mr-48 mt-7 justify-center items-center">
-                <input
-                  type="text"
-                  placeholder="Enter Your Name"
-                  className="w-full h-14 px-5"
-                />
-                <input
-                  type="text"
-                  placeholder="Enter Your Contact"
-                  className="w-96 h-14 px-5"
-                />
-                <input
-                  type="text"
-                  placeholder="Enter Your Email"
-                  className="w-96 h-14 px-5"
-                />
-                <button className="bg-box-blue text-white rounded-lg w-fit p-3">
-                  Submit
-                </button>
+          <div className="ml-10 flex flex-row gap-96 ">
+            <div className="flex items-center justify-center pb-4 pl-4 pr-4">
+              <div
+                ref={searchBarRef}
+                className="relative flex items-center w-full max-w-md"
+              >
+                <div className="w-fit pl-8 ">
+                  <ul className=" text-3xl text-white font-light bounce-in-top w-fit">
+                    <li className="w-fit bounce-in-top">Manage Inventory</li>
+                    <li className="bounce-in-top">Increase cash flow </li>
+                    <li className="bounce-in-top">Grow you business</li>
+                    <li className="bounce-in-top">
+                      Promote products and deals
+                    </li>
+                  </ul>
+                </div>
               </div>
+            </div>
+            <div className="flex flex-col gap-5 pr-36 mt-7 justify-between items-center">
+              <input
+                type="text"
+                placeholder="Enter Your Name"
+                className="w-full h-14 px-5"
+              />
+              <input
+                type="text"
+                placeholder="Enter Your Contact"
+                className="w-96 h-14 px-5"
+              />
+              <input
+                type="text"
+                placeholder="Enter Your Email"
+                className="w-96 h-14 px-5"
+              />
+              <button className="bg-box-blue text-white rounded-lg w-fit p-3">
+                Submit
+              </button>
             </div>
           </div>
         </div>
       </div>
+
       <div className="w-fit">
         <div className="flex justify-center items-center w-fit mt-32">
           {mobiles.map((item, key) => {

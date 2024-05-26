@@ -6,7 +6,7 @@ import sale from "../assets/Sell.png";
 
 function PLefts() {
   return (
-    <div className="fixed top-1/2 left-0 transform -translate-y-1/2">
+    <div className="fixed top-1/2  left-0 transform -translate-y-1/2">
       <ul className="list-none space-y-4">
         <li>
           <a

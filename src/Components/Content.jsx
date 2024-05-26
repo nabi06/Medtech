@@ -1,32 +1,54 @@
-import React, { useState, useEffect } from "react";
-import right from "../assets/arrowright.png";
-import left from "../assets/arrowleft.png";
-function Context() {
-  const [animate, setAnimate] = useState(false);
+import React, { useState } from "react";
+import screen1 from "../assets/Icons/Screen dummy-1.png";
+import screen2 from "../assets/Icons/Screen dummy-2.png";
+import screen3 from "../assets/Icons/Screen dummy-3.png";
+import screen4 from "../assets/Icons/Screen dummy-4.png";
+import mobile from "../assets/mobile.png";
 
-  useEffect(() => {
-    setAnimate(true);
-  }, []);
+const Content = () => {
+  const [hoveredIndex, setHoveredIndex] = useState(null);
+  const mobiles = [screen2, screen1, mobile, screen3, screen4];
+
+  const handleMouseEnter = (index) => {
+    setHoveredIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setHoveredIndex(null);
+  };
 
   return (
-    <div className="flex justify-center">
-      <div
-        className={` ${
-          animate ? "translate-x-0" : "translate-x-full"
-        } transition duration-500 ease-in-out`}
-      >
-        <img src={right} />
-      </div>
-      <div
-        className={` ${
-          animate ? "translate-x-0" : "-translate-x-full"
-        } transition duration-500 ease-in-out`}
-      >
-        {/* <!-- Content of div 2 --> */}
-        <img src={left} />
+    <div className="w-fit">
+      <div className="flex justify-center items-center w-fit mt-32 relative">
+        {mobiles.map((item, key) => {
+          const isHovered = key === hoveredIndex;
+          return (
+            <div
+              key={key}
+              className={`transition-transform duration-300 ease-in-out ${
+                isHovered ? "z-10 scale-125" : "scale-90"
+              }`}
+              onMouseEnter={() => handleMouseEnter(key)}
+              onMouseLeave={handleMouseLeave}
+              style={{
+                transform: isHovered
+                  ? "translateX(0)"
+                  : `translateX(${
+                      hoveredIndex !== null
+                        ? key < hoveredIndex
+                          ? "-50%"
+                          : "50%"
+                        : "0"
+                    })`,
+              }}
+            >
+              <img src={item} alt={`Mobile ${key}`} className="rounded-lg" />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
-}
+};
 
-export default Context;
+export default Content;

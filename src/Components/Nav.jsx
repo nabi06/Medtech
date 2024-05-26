@@ -27,10 +27,10 @@ function Nav({ topDivRef }) {
       ref={topDivRef}
       className=" fixed top-0 w-screen z-10 bg-white w-100% h-fit text-grey-500"
     >
-      <div className=" flex flex-col justify-center ">
+      <div className=" flex flex-grow flex-col justify-center ">
         <ul className=" text-3xl ">
           <div
-            className="flex flex-row font-extralight justify-between  text-lg  items-center bg-white text-gray-500 font-sans "
+            className="flex flex-grow flex-row font-extralight justify-between  text-lg  items-center bg-white text-gray-500 font-sans "
             style={{ fontFamily: "helveticaNeue" }}
           >
             <div>

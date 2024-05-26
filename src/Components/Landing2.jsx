@@ -10,6 +10,7 @@ import { Link, useNavigate } from "react-router-dom";
 import Products from "./Products";
 import right2 from "../assets/right.png";
 import Context from "./Content";
+import line from "../assets/linee.png";
 function Landing2() {
   const [isVisible, setIsVisible] = useState(false);
   const navigate = useNavigate();
@@ -26,28 +27,28 @@ function Landing2() {
   ];
   return (
     <div className="ml-10 pt-10">
-      <div className=" items-center overflow-hidden mx-20">
+      <div className=" items-center rounded-lg overflow-hidden mx-20">
         <div
-          className=" flex flex-row ml-8  items-center "
-          style={{ width: "800vh" }}
+          className=" flex flex-row ml-8  rounded-xl items-center "
+          // style={{ width: "800vh" }}
         >
           {slides.map((item, key) => (
             <div
               key={key}
-              className="hover:scale-110 h-fit transition duration-300 ease-in-out max-w-sm flex justify-center items-center p-2"
+              className="hover:scale-110 h-fit rounded-xl transition duration-300  ease-in-out max-w-sm flex justify-center items-center p-2"
             >
               <img
                 src={item}
                 alt={`Slide ${key}`}
-                className="h-auto "
-                style={{ width: "500vh" }}
+                className="h-auto  rounded-xl"
+                style={{ width: "200vh" }}
               />
             </div>
           ))}
         </div>
       </div>
       <div className="flex  flex-col items-center ">
-        <p className="text-text-blue text-4xl font-semibold mt-10">
+        <p className="text-text-blue text-4xl font-semibold mt-8">
           Grow your buisness with Pharm Etrade
         </p>
         <br></br>
@@ -58,16 +59,19 @@ function Landing2() {
         <p className="text-2xl font-light">
           We've designed a platform especially for you Start saving today.{" "}
         </p>
+        <p>
+          <img src={line} className="w-fit h-8 mt-8" />
+        </p>
       </div>
       <div className="ml-24 flex items-center flex-row justify-between ">
         <div
-          className=" bg-inp mt-10  "
+          className=" bg-inp   "
           style={{ width: "200vh", height: "fit-content" }}
         >
-          <ul className="  space-y-5 w-100% text-3xl mt-12 font-light pl-8 ">
+          <ul className="  space-y-5 w-100% pb-10 text-3xl mt-12 font-light pl-8 ">
             {texts.map((items, key) => (
-              <li className="flex flex-row items-center gap-2">
-                <img src={right2} className="w-8 bg-bg-colors rounded-full" />
+              <li className="flex flex-row  text-ink items-center gap-2">
+                <img src={right2} className="w-8 bg-arr rounded-full" />
                 {items}
               </li>
             ))}
@@ -84,7 +88,7 @@ function Landing2() {
           }}
         ></div>
       </div>
-      <div className="flex -mt-20 justify-center ">
+      <div className="flex  justify-center ">
         <Link to="/products">
           <img
             src={product}
