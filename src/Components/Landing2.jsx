@@ -26,16 +26,16 @@ function Landing2() {
     "Multi-order merge shipment.",
   ];
   return (
-    <div className="ml-10 pt-10">
-      <div className=" items-center rounded-lg overflow-hidden mx-20">
+    <div className="2xl:ml-10 md:pt-10">
+      <div className="md:w-screen md:mx-0 lg:w-screen lg:pl-2 items-center rounded-lg overflow-hidden xl:mx-0">
         <div
-          className=" flex flex-row ml-8  rounded-xl items-center "
+          className="  md:w-screen lg:w-screen md:flex md:flex-row md:justify-center flex flex-row ml-8  rounded-xl xl:items-center "
           // style={{ width: "800vh" }}
         >
           {slides.map((item, key) => (
             <div
               key={key}
-              className="hover:scale-110 h-fit rounded-xl transition duration-300  ease-in-out max-w-sm flex justify-center items-center p-2"
+              className="hover:scale-110 md:w-56 lg:w-64 xl:w-fit h-fit rounded-xl transition duration-300  ease-in-out max-w-sm flex justify-center items-center p-2"
             >
               <img
                 src={item}
@@ -63,12 +63,12 @@ function Landing2() {
           <img src={line} className="w-fit h-8 mt-8" />
         </p>
       </div>
-      <div className="ml-24 flex items-center flex-row justify-between ">
+      <div className="ml-24 md:flex md:gap-2 lg:items-center flex-row xl:justify-between ">
         <div
-          className=" bg-inp   "
+          className=" bg-inp md:w-12 lg:w-36  "
           style={{ width: "200vh", height: "fit-content" }}
         >
-          <ul className="  space-y-5 w-100% pb-10 text-3xl mt-12 font-light pl-8 ">
+          <ul className="  space-y-5 md xl:w-100% md:pb-10 md:text-xl xl:text-3xl xl:mt-12 font-light pl-8 ">
             {texts.map((items, key) => (
               <li className="flex flex-row  text-ink items-center gap-2">
                 <img src={right2} className="w-8 bg-arr rounded-full" />
@@ -78,13 +78,13 @@ function Landing2() {
           </ul>
         </div>
         <div
+          className="md:h-auto lg:h-auto xl:h-85vh"
           style={{
             backgroundImage: `url(${bg2})`,
             backgroundSize: "contain",
             backgroundPosition: "top ",
             backgroundRepeat: "no-repeat",
             width: "100%",
-            height: "85vh",
           }}
         ></div>
       </div>

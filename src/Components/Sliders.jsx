@@ -65,14 +65,14 @@ function Sliders() {
   const mobiles = [mobile, mobile, mobile, mobile, mobile];
   const screens = [mask, covid, covid, mask];
   const { pop } = useNavbarContext();
-  const [showAll, setShowAll] = useState(screens.slice(0, screens.length - 1));
+  const [showAll, setShowAll] = useState(screens.slice(0, 2));
   const [curIndex, setCurIndex] = useState(0);
   const [visibleImages, setVisibleImages] = useState(images.slice(0, 5));
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleNext = () => {
     console.log("prev");
     const nextInd = curIndex + 2;
-    if (nextInd < images.length) {
+    if (nextInd < screens.length) {
       const nextVisibleImages = screens.slice(nextInd, nextInd + 2);
       setShowAll(nextVisibleImages);
       setCurIndex(nextInd);
@@ -148,10 +148,10 @@ function Sliders() {
             </div>
           ))}
         </Carousel> */}
-        <div className="flex items-center ml-20 flex-row gap-20 w-full ">
+        <div className=" md:grid md:grid-cols-3 md:gap-48  md:w-screen xl:flex xl:items-center ml-20 xl:flex-row xl:gap-20 xl:w-full ">
           {showAll.map((items) => (
             <div style={{ width: "65vh" }}>
-              <img src={items} className="w-" />
+              <img src={items} className="md:w-96" />
             </div>
           ))}
         </div>
@@ -186,7 +186,7 @@ function Sliders() {
             </div>
           </div>
         </div>
-        <div className=" ml-20 flex overflow-x-scroll snap-x snap-mandatory gap-10 ">
+        <div className="md:grid md:grid-cols-3 md:grid-rows-2 xl:ml-20 xl:flex overflow-x-scroll snap-x snap-mandatory xl:gap-10 ">
           {visibleImages.map((img, index) => (
             <div
               key={index}
@@ -232,22 +232,22 @@ function Sliders() {
       <div
         className={
           pop
-            ? " getTouchs w-100% relative h-fit mt-48 mx-8 rounded-md p-10 flex flex-col justify-center"
-            : " getTouchs w-100% relative h-fit mt-48 mx-8 rounded-md p-10 flex flex-col justify-center"
+            ? " getTouchs md:w-screen xl:w-100% relative h-fit md:mt-24 xl:mt-48 xl:mx-8 rounded-md xl:p-10 xl:flex xl:flex-col xl:justify-center"
+            : " getTouchs md:ml-0 md:w-screen md:h-fit xl:w-100% relative h-fit md:mt-24 xl:mt-48 xl:mx-8 rounded-md xl:p-10 xl:flex xl:flex-col xl:justify-center"
         }
       >
-        <div className="border-2  border-white w-auto h-80  ml-12 rounded-md">
-          <p className="absolute top-4 z-5 left-1/3 h-fit bg-box-blue text-white px-4 py-2 rounded-md  text-3xl">
+        <div className="border-2 md:p-0 border-white w-auto md:h-fit md:w-auto xl:w-auto xl:h-80 lg:ml-4 lg:mr-4 lg:mt-4 lg:mb-4 xl:ml-12 rounded-md">
+          <p className="absolute xl:top-4 z-5 left-1/3 h-fit bg-box-blue text-white px-4 py-2 rounded-md  text-3xl">
             Get in touch{" "}
           </p>
-          <div className="ml-10 flex flex-row gap-96 ">
-            <div className="flex items-center justify-center pb-4 pl-4 pr-4">
+          <div className="ml-10 md:flex md:flex-row md:gap-10 lg:gap-20 xl:flex xl:flex-row xl:gap-96 ">
+            <div className="flex items-center justify-center lg:pb-4 lg:pl-4 xl:pr-4">
               <div
                 ref={searchBarRef}
                 className="relative flex items-center w-full max-w-md"
               >
-                <div className="w-fit pl-8 ">
-                  <ul className=" text-3xl text-white font-light bounce-in-top w-fit">
+                <div className="md:w-screen xl:w-fit xl:pl-8 ">
+                  <ul className="md:text-xl xl:text-3xl text-white font-light bounce-in-top w-fit">
                     <li className="w-fit bounce-in-top">Manage Inventory</li>
                     <li className="bounce-in-top">Increase cash flow </li>
                     <li className="bounce-in-top">Grow you business</li>
@@ -282,7 +282,7 @@ function Sliders() {
         </div>
       </div>
 
-      <div className="w-fit">
+      <div className=" lg:w-screen xl:w-fit">
         <div className="flex justify-center items-center w-fit mt-32">
           {mobiles.map((item, key) => {
             return (

@@ -32,6 +32,12 @@ export default {
       animation: {
         'bounce-down': 'bounce-down 0.8s ease-out 1 forwards'
       },
+      width:{
+        '100vh': '100vh'
+      },
+      height:{
+        '85vh': '85vh'
+      }
       
     },
   },

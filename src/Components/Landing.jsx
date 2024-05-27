@@ -12,9 +12,9 @@ function Landing({ topMargin }) {
   return (
     <div className=" h-fit w-screen">
       <PLefts />
-      <div className="h-fit  w-full">
+      <div className="h-fit  xl:w-full">
         <div
-          className="w-screen background-animation"
+          className=" xl:w-screen md:w-full md:h-fit background-animation"
           style={{
             // backgroundImage: `url(${BackgroundImage})`,
             // backgroundPosition: "center top",
@@ -24,7 +24,7 @@ function Landing({ topMargin }) {
             marginTop: `${topMargin}px`,
           }}
         >
-          <p className="text-left pt-20 ml-36 text-4xl text-white w-fit">
+          <p className="text-left md:pt-10 lg:pt-20 md:ml-20 lg:ml-36 lg:text-4xl text-white w-fit">
             <div className="mb-10 bounce-in-top overflow-hidden">
               <span className="text-6xl mb-20 text-white  font-extralight">
                 Your{" "}
