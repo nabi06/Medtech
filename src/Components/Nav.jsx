@@ -22,6 +22,9 @@ function Nav({ topDivRef }) {
     console.log("hello");
     navigate("/login");
   }
+  function handleCart() {
+    navigate("/cart");
+  }
   return (
     <div
       ref={topDivRef}
@@ -74,6 +77,7 @@ function Nav({ topDivRef }) {
                     <img
                       src={Cart}
                       className="w-6 md:w-8 lg:w-10 xl:w-12 pt-2 h-10 md:h-10 lg:h-10 xl:h-12"
+                      onClick={handleCart}
                     />
                   </button>
                 </li>

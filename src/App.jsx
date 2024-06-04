@@ -13,6 +13,7 @@ import PRight from "./Components/PRight";
 import Product from "./Components/Product";
 import Sliders from "./Components/Sliders";
 import Products from "./Components/Products";
+import Cart from "./Components/Cart";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -25,6 +26,11 @@ function App() {
       setTopMargin(topDivRef.current.offsetHeight);
     }
   }, []);
+  const [cartItems, setCartItems] = useState([]);
+  function addCart(prolist) {
+    setCartItems([...cartItems, prolist]);
+  }
+  console.log(cartItems);
   return (
     <BrowserRouter>
       <NavbarProvider>
@@ -33,7 +39,17 @@ function App() {
         <Routes>
           <Route path="/" element={<Landing topMargin={topMargin} />} />
           <Route path="/login" element={<Login />} />
-          <Route path="/products" element={<Products />} />
+          <Route
+            path="/cart"
+            element={
+              <Cart
+                topMargin={topMargin}
+                cartItems={cartItems}
+                setCartItems={setCartItems}
+              />
+            }
+          />
+          <Route path="/products" element={<Products addCart={addCart} />} />
           <Route path="/pops" element={<Product />} />
           <Route path="/app" element={<Content />} />
         </Routes>
