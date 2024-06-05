@@ -1,19 +1,13 @@
 import { useEffect, useRef, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
-import Content from "./Components/Content";
-import Footers from "./Components/Footers";
+import Cart from "./Components/Cart";
 import Landing from "./Components/Landing";
-import Landing2 from "./Components/Landing2";
 import Login from "./Components/Login";
 import Nav from "./Components/Nav";
 import { NavbarProvider } from "./Components/NavbarContext";
-import PLefts from "./Components/PLefts";
-import PRight from "./Components/PRight";
 import Product from "./Components/Product";
-import Sliders from "./Components/Sliders";
 import Products from "./Components/Products";
-import Cart from "./Components/Cart";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -31,33 +25,31 @@ function App() {
     setCartItems([...cartItems, prolist]);
   }
   console.log(cartItems);
+  const location = useLocation();
   return (
-    <BrowserRouter>
-      <NavbarProvider>
-        <Nav topDivRef={topDivRef} />
-
-        <Routes>
-          <Route path="/" element={<Landing topMargin={topMargin} />} />
-          <Route path="/login" element={<Login />} />
-          <Route
-            path="/cart"
-            element={
-              <Cart
-                topMargin={topMargin}
-                cartItems={cartItems}
-                setCartItems={setCartItems}
-              />
-            }
-          />
-          <Route path="/products" element={<Products addCart={addCart} />} />
-          <Route path="/pops" element={<Product />} />
-          <Route path="/app" element={<Content />} />
-        </Routes>
-        {/* <Landing2 />
+    <NavbarProvider>
+      {location.pathname !== "/login" && <Nav topDivRef={topDivRef} />}
+      <Routes>
+        <Route path="/login" element={<Login />} />
+        <Route
+          path="/cart"
+          element={
+            <Cart
+              topMargin={topMargin}
+              cartItems={cartItems}
+              setCartItems={setCartItems}
+            />
+          }
+        />
+        <Route path="/products" element={<Products addCart={addCart} />} />
+        <Route path="/pops" element={<Product />} />
+        <Route path="/app" element={<Landing />} />
+        <Route path="/" element={<Landing topMargin={topMargin} />} />
+      </Routes>
+      {/* <Landing2 />
         <Sliders />
         <Footers /> */}
-      </NavbarProvider>
-    </BrowserRouter>
+    </NavbarProvider>
   );
 }
 
