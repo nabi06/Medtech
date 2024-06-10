@@ -32,6 +32,9 @@ function Nav({ topDivRef }) {
   function handleCart() {
     navigate("/cart");
   }
+  function handleclicked() {
+    navigate("/app");
+  }
   return (
     <div
       ref={topDivRef}
@@ -54,7 +57,7 @@ function Nav({ topDivRef }) {
               </li>
             </div>
             <div className="hidden   md:flex md:flex-row md:gap-4 lg:gap-4 xl:flex xl:flex-row xl:justify-between xl:gap-6 text-md font-thin items-center">
-              <li className=" w-fit" onClick={handleclick}>
+              <li className=" w-fit" onClick={handleclicked}>
                 Home
               </li>
               <li className=" w-fit">Products </li>
