@@ -26,8 +26,8 @@ function Landing2() {
     "Multi-order merge shipment.",
   ];
   return (
-    <div className="2xl:ml-10 md:pt-10">
-      <div className="md:w-screen md:mx-0 lg:w-screen lg:pl-2 items-center rounded-lg overflow-hidden xl:mx-0">
+    <div className="2xl:ml-2 md:pt-10">
+      <div className="md:w-screen md:mx-0 lg:w-screen lg:pl-2 items-center rounded-lg overflow-hidden xl:mx-0 pl-2">
         <div
           className="  md:w-screen lg:w-screen md:flex md:flex-row md:justify-center flex flex-row ml-8  rounded-xl xl:items-center "
           // style={{ width: "800vh" }}

@@ -13,6 +13,9 @@ import { useNavigate } from "react-router-dom";
 import menu from "../assets/menu.png";
 import { useState, useEffect, useRef } from "react";
 import add from "../assets/add.png";
+import linkedin from "../assets/linkedin.png";
+import insta from "../assets/insta.png";
+import facebook from "../assets/facebook.png";
 
 function Nav({ topDivRef }) {
   let navigate = useNavigate();
@@ -100,7 +103,7 @@ function Nav({ topDivRef }) {
         </ul>
         {/* down div elemenet  */}
         <div
-          className="flex flex-row w-16  md:w-screen   xl:gap-20 2xl:gap-24 lg:w-screen md:gap-20
+          className="flex flex-row w-16  md:w-screen   xl:gap-20  2xl:gap-12 lg:w-screen md:gap-20
          xl:w-screen items-center h-fit bg-white text-black border-2 border-grey-500 shadow-lg  lg:px-0 lg:h-fit"
         >
           <div
@@ -159,6 +162,18 @@ function Nav({ topDivRef }) {
                 <div className="flex flex-row gap-2 lg:gap-5 items-center">
                   <img src={bid} className="w-fit  h-10" />
                   <li>Bid</li>
+                </div>
+                <div className="flex flex-row gap-2 lg:gap-4 items-center">
+                  <img src={linkedin} className="w-fit  h-8" />
+                  <li>LinkedIn</li>
+                </div>
+                <div className="flex flex-row gap-2 lg:gap-4 mr-3 items-center">
+                  <img src={facebook} className="w-fit  h-8" />
+                  <li>Facebook</li>
+                </div>
+                <div className="flex flex-row gap-2 lg:gap-4 items-center">
+                  <img src={insta} className="w-fit  h-8" />
+                  <li>insta</li>
                 </div>
                 {/* <div className="flex flex-row gap-2 items-center">
           <button>

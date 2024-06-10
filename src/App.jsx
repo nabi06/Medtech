@@ -8,6 +8,7 @@ import Nav from "./Components/Nav";
 import { NavbarProvider } from "./Components/NavbarContext";
 import Product from "./Components/Product";
 import Products from "./Components/Products";
+import Items from "./Components/Items";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -43,8 +44,9 @@ function App() {
         />
         <Route path="/products" element={<Products addCart={addCart} />} />
         <Route path="/pops" element={<Product />} />
-        <Route path="/app" element={<Landing />} />
+        <Route path="/app" element={<Landing topMargin={topMargin} />} />
         <Route path="/" element={<Landing topMargin={topMargin} />} />
+        <Route path="/detailspage/:id" element={<Items addCart={addCart} />} />
       </Routes>
       {/* <Landing2 />
         <Sliders />

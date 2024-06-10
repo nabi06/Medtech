@@ -24,6 +24,7 @@ function PRight({ topMargin, addCart }) {
     console.log("Clicked to close Items");
     setPop(false);
   };
+
   function handleCart(index) {
     const prolist = {
       id: index,
@@ -35,6 +36,7 @@ function PRight({ topMargin, addCart }) {
     };
     addCart(prolist);
   }
+
   return (
     <div className="w-full">
       <div className="flex justify-around items-center">
@@ -55,7 +57,7 @@ function PRight({ topMargin, addCart }) {
             className="w-full max-w-lg border p-2 rounded-xl"
             // onClick={handleClick}
           >
-            <Link to="/detailspage">
+            <Link to={`/detailspage/${index}  `}>
               <div className="flex justify-center">
                 <img
                   src={img}
