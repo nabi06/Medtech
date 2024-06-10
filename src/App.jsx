@@ -9,6 +9,10 @@ import { NavbarProvider } from "./Components/NavbarContext";
 import Product from "./Components/Product";
 import Products from "./Components/Products";
 import Items from "./Components/Items";
+import Signup from "./Components/Signup";
+import OTP2 from "./Components/OTP2";
+import Password from "./Components/Password";
+import Changepassword from "./Components/Changepassword";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -29,9 +33,12 @@ function App() {
   const location = useLocation();
   return (
     <NavbarProvider>
-      {location.pathname !== "/login" && <Nav topDivRef={topDivRef} />}
+      {location.pathname !== "/signup" && <Nav topDivRef={topDivRef} />}
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/otp2" element={<OTP2 />} />
+        <Route path="/password" element={<Password />} />
+        <Route path="/Changepassword" element={<Changepassword />} />
         <Route
           path="/cart"
           element={

@@ -23,13 +23,14 @@ function Nav({ topDivRef }) {
   const [inputText, setInputText] = useState("");
   function handleredirect() {
     console.log("hello");
-    navigate("/login");
-  }
-  function handleCart() {
-    navigate("/cart");
+    navigate("/signin");
   }
   function handleclick() {
-    navigate("/app");
+    navigate("/signup");
+  }
+
+  function handleCart() {
+    navigate("/cart");
   }
   return (
     <div
@@ -68,7 +69,10 @@ function Nav({ topDivRef }) {
               >
                 <img src={add} className="w-6 md:w-8 lg:w-10 h-10" />
                 <li className="">
-                  <button className="  text-gray-500  text-md  font-thin  ">
+                  <button
+                    className="  text-gray-500  text-md  font-thin  "
+                    onClick={handleclick}
+                  >
                     <p className=" font-thin"> Signup / </p>
                   </button>
                 </li>
