@@ -13,6 +13,7 @@ import Signup from "./Components/Signup";
 import OTP2 from "./Components/OTP2";
 import Password from "./Components/Password";
 import Changepassword from "./Components/Changepassword";
+import Checkout from "./Components/Checkout";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -34,8 +35,10 @@ function App() {
   return (
     <NavbarProvider>
       {location.pathname !== "/signup" && <Nav topDivRef={topDivRef} />}
+      {location.pathname !== "/signin" && <Nav topDivRef={topDivRef} />}
       <Routes>
         <Route path="/signup" element={<Signup />} />
+
         <Route path="/otp2" element={<OTP2 />} />
         <Route path="/password" element={<Password />} />
         <Route path="/Changepassword" element={<Changepassword />} />
@@ -54,6 +57,7 @@ function App() {
         <Route path="/app" element={<Landing topMargin={topMargin} />} />
         <Route path="/" element={<Landing topMargin={topMargin} />} />
         <Route path="/detailspage/:id" element={<Items addCart={addCart} />} />
+        <Route path="/checkout" element={<Checkout topMargin={topMargin} />} />
       </Routes>
       {/* <Landing2 />
         <Sliders />

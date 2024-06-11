@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
 
 function Cart({ topMargin, cartItems, setCartItems }) {
   // Step 1: Initialize state for quantities
   const [quantities, setQuantities] = useState(cartItems.map(() => 1));
+  const navigate = useNavigate();
 
   // Function to handle removing items from the cart
   function handleremove(index) {
@@ -30,6 +31,9 @@ function Cart({ topMargin, cartItems, setCartItems }) {
   // const total = cartItems.reduce((cum, item) => {
   //   return cum + (item.price*item.quantity)
   // },0)
+  function handlecheck() {
+    navigate("/checkout");
+  }
 
   return (
     <div className="ml-10" style={{ marginTop: `${topMargin}px` }}>
@@ -148,7 +152,10 @@ function Cart({ topMargin, cartItems, setCartItems }) {
                   </tr>
                 </tbody>
                 <div>
-                  <button className=" px-10 py-3 ml-3 mt-2 items-center font-bold text-white text-xl   bg-sky-700 border-2 rounded-full ">
+                  <button
+                    className=" px-10 py-3 ml-3 mt-2 items-center font-bold text-white text-xl   bg-sky-700 border-2 rounded-full "
+                    onClick={handlecheck}
+                  >
                     Proceed to checkout{" "}
                   </button>
                   <button className="px-11  flex justify-center font-bold text-black text-xl bg-slate-300 py-3 border-2 rounded-full m-2">

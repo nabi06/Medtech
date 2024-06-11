@@ -24,7 +24,10 @@ export default {
         'fonts':'#174363',
         'inp':'#F3FAFE',
         'arr':'#41CDCE',
-        'ink':'#2020D3'
+        'ink':'#2020D3',
+        'check':'#F2F3F5',
+        'order':'#FAFAFA',
+        'cart':'#25AEB1'
       },
       backgroundImage: {
         'colors': 'linear-gradient(to right, #ADD8E1, #7DC2CB, #A0D2D9, #6AB7C1)'
