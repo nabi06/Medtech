@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { RxCross2 } from "react-icons/rx";
+import de from "../assets/de.png";
 
 function Cart({ topMargin, cartItems, setCartItems }) {
   // Step 1: Initialize state for quantities
@@ -43,54 +44,55 @@ function Cart({ topMargin, cartItems, setCartItems }) {
             <div className="w-full lg:w-2/3">
               <table className="min-w-full   ">
                 <thead className="">
-                  <tr>
+                  <tr className="bg-car">
                     <th
                       scope="col"
-                      className="px-5 py-3  text-left text-xs font-medium text-gray-500 tracking-wider"
-                    ></th>
-                    <th
-                      scope="col"
-                      className="px-5 py-3  text-[15px] text-left text-xs font-medium text-gray-500  tracking-wider"
+                      className="px-5 py-3  bg- text-left text-md font-normal text-gray-500 tracking-wider"
                     >
+                      {" "}
                       Image
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 text-[15px] text-left text-xs font-medium text-gray-500  tracking-wider"
+                      className="px-5 py-3  text-[15px] text-left text-md font-normal text-gray-500  tracking-wider"
                     >
                       Product Name
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 text-[15px] text-left text-xs font-medium text-gray-500  tracking-wider"
+                      className="px-5 py-3 text-[15px] text-left text-md font-normal text-gray-500  tracking-wider"
                     >
                       Price
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3 text-[15px] text-left text-xs font-medium text-gray-500  tracking-wider"
+                      className="px-5 py-3 text-[15px] text-left text-md font-normal text-gray-500  tracking-wider"
                     >
                       Quantity
                     </th>
                     <th
                       scope="col"
-                      className="px-5 py-3  text-[15px] text-left text-xs font-medium text-gray-500 tracking-wider"
+                      className="px-5 py-3 text-[15px] text-left text-md font-normal text-gray-500  tracking-wider"
                     >
                       Subtotal
                     </th>
+                    <th
+                      scope="col"
+                      className="px-5 py-3  text-[15px] text-left text-md font-normal text-gray-500 tracking-wider"
+                    ></th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200 border-2 rounded-lg">
                   {cartItems.map((item, index) => (
                     <tr key={index}>
-                      <td className="px-5 py-4 whitespace-nowrap">
+                      {/* <td className="px-5 py-4 whitespace-nowrap">
                         <button
                           className="font-semibold text-[20px] ml-4 bg-gray-100 rounded-lg h-6 w-5"
                           onClick={() => handleremove(index)}
                         >
-                          <RxCross2 />
+                          <img src={de} className="w-12 h-8" />
                         </button>
-                      </td>
+                      </td> */}
                       <td className="px-5 py-4 whitespace-nowrap">
                         <img
                           className="h-20 w-20 pl-3 mb-2 flex justify-center bg-foots rounded-lg"
@@ -117,6 +119,14 @@ function Cart({ topMargin, cartItems, setCartItems }) {
                         <strong>{item.price}</strong>
                         {/* ${calculateSubtotal(item.price, quantities[index]).toFixed(2)} */}
                       </td>
+                      <td className="px-5 py-4 whitespace-nowrap">
+                        <button
+                          className="font-semibold text-[20px] ml-4 bg-gray-100 rounded-lg h-6 w-5"
+                          onClick={() => handleremove(index)}
+                        >
+                          <img src={de} className="w-12 h-8" />
+                        </button>
+                      </td>
                     </tr>
                   ))}
                 </tbody>
@@ -126,14 +136,14 @@ function Cart({ topMargin, cartItems, setCartItems }) {
               <table className="   ">
                 <thead className="">
                   <tr>
-                    <th className="px-5 py-3 text-[15px] text-center text-xs font-medium text-gray-500  ">
+                    <th className="px-5 py-3 text-[15px] text-center text-md font-normal text-gray-500  ">
                       Cart Totals
                     </th>
                   </tr>
                 </thead>
                 <tbody className="border rounded-lg">
                   <tr>
-                    <td className="px-6 py-4 whitespace-nowrap text-center font-medium">
+                    <td className="px-6 py-4 whitespace-nowrap text-center font-normal">
                       Subtotal
                     </td>
                     <td className="px-12 py-4 whitespace-nowrap text-center">
@@ -142,7 +152,7 @@ function Cart({ topMargin, cartItems, setCartItems }) {
                     {/* ${calculateSubtotal(item.price, quantities[index]).toFixed(2)} */}
                   </tr>
                   <tr>
-                    <td className="px-5 py-4 whitespace-nowrap text-center font-medium">
+                    <td className="px-5 py-4 whitespace-nowrap text-center font-normal">
                       Total
                     </td>
                     <td className="px-12 py-4 whitespace-nowrap text-center">

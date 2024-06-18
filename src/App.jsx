@@ -35,7 +35,7 @@ function App() {
   return (
     <NavbarProvider>
       {location.pathname !== "/signup" && <Nav topDivRef={topDivRef} />}
-      {location.pathname !== "/signin" && <Nav topDivRef={topDivRef} />}
+      {/* {location.pathname !== "/signin" && <Nav topDivRef={topDivRef} />} */}
       <Routes>
         <Route path="/signup" element={<Signup />} />
 

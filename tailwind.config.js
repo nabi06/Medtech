@@ -27,7 +27,9 @@ export default {
         'ink':'#2020D3',
         'check':'#F2F3F5',
         'order':'#FAFAFA',
-        'cart':'#25AEB1'
+        'cart':'#25AEB1',
+        'place':'#82C846',
+        'car':'#42CDCE'
       },
       backgroundImage: {
         'colors': 'linear-gradient(to right, #ADD8E1, #7DC2CB, #A0D2D9, #6AB7C1)'

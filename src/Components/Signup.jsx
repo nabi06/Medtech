@@ -170,7 +170,9 @@ const Signup = () => {
                   style={{
                     ...inputStyle,
                     marginLeft: "20px",
-                    ...(errors.User_Id && { border: "1px solid red" }),
+                    ...(errors.User_Id && {
+                      border: "1px solid red",
+                    }),
                   }}
                   required
                 />
@@ -546,7 +548,7 @@ const Signup = () => {
                     border: "1px solid #ccc",
                     borderRadius: "4px",
                     width: "200px",
-                    height: "10px",
+                    height: "12px",
                     marginBottom: "5px",
                     marginTop: "10px",
                     marginLeft: "22px",
@@ -604,7 +606,7 @@ const Signup = () => {
                     border: "1px solid #ccc",
                     borderRadius: "4px",
                     width: "200px",
-                    height: "10px",
+                    height: "12px",
                     marginTop: "20px",
                     marginBottom: "5px",
                     marginLeft: "22px",
@@ -659,7 +661,7 @@ const Signup = () => {
                   border: "1px solid #ccc",
                   borderRadius: "4px",
                   width: "200px",
-                  height: "10px",
+                  height: "12px",
                   marginBottom: "5px",
                   marginTop: "20px",
                   marginLeft: "22px",
@@ -793,7 +795,7 @@ const Signup = () => {
                     border: "1px solid #ccc",
                     borderRadius: "4px",
                     width: "200px",
-                    height: "10px",
+                    height: "12px",
                     marginBottom: "5px",
                     marginLeft: "60px",
                     fontSize: "16px",
@@ -819,7 +821,7 @@ const Signup = () => {
                     border: "1px solid #ccc",
                     borderRadius: "4px",
                     width: "220px",
-                    height: "10px",
+                    height: "12px",
                     marginBottom: "5px",
                     marginTop: "80px",
                     marginLeft: "22px",
@@ -850,7 +852,7 @@ const Signup = () => {
     border: "1px solid #ccc",
     borderRadius: "4px",
     width: "200px",
-    height: "10px",
+    height: "12px",
     marginBottom: "5px",
     marginLeft: "60px",
   };
@@ -876,7 +878,7 @@ const Signup = () => {
 
   const selectStyle = {
     width: "200px",
-    height: "10px",
+    height: "12px",
     marginLeft: "2px",
     border: "1px solid #ccc",
     borderRadius: "4px",
@@ -886,7 +888,7 @@ const Signup = () => {
     border: "1px solid #ccc",
     borderRadius: "4px",
 
-    height: "10px",
+    height: "12px",
     marginBottom: "-10px",
     // marginLeft: '60px'
   };
