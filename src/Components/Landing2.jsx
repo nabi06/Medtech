@@ -5,7 +5,7 @@ import slider3 from "../assets/3.png";
 import slider4 from "../assets/4.png";
 
 import bg2 from "../assets/doc.png";
-import product from "../assets/product.png";
+import allproduct from "../assets/AllProduct.jpg";
 import { Link, useNavigate } from "react-router-dom";
 import Products from "./Products";
 import right2 from "../assets/right.png";
@@ -48,7 +48,7 @@ function Landing2() {
         </div>
       </div>
       <div className="flex  flex-col items-center ">
-        <p className="text-text-blue text-4xl font-semibold mt-8">
+        <p className="text-text-blue text-[60px] font-semibold mt-8">
           Grow your buisness with Pharm Etrade
         </p>
         <br></br>
@@ -68,7 +68,7 @@ function Landing2() {
           className=" bg-inp md:w-12 lg:w-36  "
           style={{ width: "200vh", height: "fit-content" }}
         >
-          <ul className="  space-y-5 md xl:w-100% md:pb-10 md:text-xl xl:text-3xl xl:mt-12 font-light pl-8 ">
+          <ul className="  space-y-5 md xl:w-100% md:pb-10 md:text-xl xl:text-2xl xl:mt-12 font-normal pl-8 ">
             {texts.map((items, key) => (
               <li className="flex flex-row  text-ink items-center gap-2">
                 <img src={right2} className="w-8 bg-arr rounded-full" />
@@ -90,10 +90,16 @@ function Landing2() {
       </div>
       <div className="flex  justify-center ">
         <Link to="/products">
-          <img
+          {/* <img
             src={product}
             alt="Descriptive Alt Text"
             className="cursor-pointer w-96" // Make the image clickable
+            onClick={() => setIsVisible(true)} // Change state on click
+          /> */}
+           <img
+            src={allproduct}
+            alt="Descriptive Alt Text"
+            className="cursor-pointer w-80" // Make the image clickable
             onClick={() => setIsVisible(true)} // Change state on click
           />
         </Link>

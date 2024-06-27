@@ -52,8 +52,8 @@ const Otp = () => {
   };
 
   return (
-    <div style={{ textAlign: "center", marginTop: "26px" }}>
-      <h5 style={{ marginTop: "-15px", marginLeft: "-50px" }}>Enter OTP</h5>
+    <div style={{ textAlign: "center", marginTop: "26px" ,marginLeft:'10px'}}>
+      <h5 style={{ marginTop: "-22px", marginLeft: "-270px" }}>Enter OTP</h5>
       <OTPInput length={6} onChangeOTP={handleOTPChange} />
     </div>
   );
@@ -63,17 +63,18 @@ const inputStyle = {
   width: "20px",
   height: "20px",
   // marginLeft:'-386px',
-  // margin: "0 3px",
+  margin: "2px",
   fontSize: "12px",
   marginLeft: "135px",
   marginBottom: "-10px",
   display: "flex",
   marginTop: "25px",
-  textAlign: "center",
+  alignself:'center',
+  // textAlign: "center",
   border: "1px solid #ddd",
   borderRadius: "4px",
   // marginTop:'5px',
-  marginRight: "-180px",
+  marginRight: "-190px",
   //  marginRight:'368px'
 };
 

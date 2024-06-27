@@ -42,11 +42,7 @@ const Password = () => {
   };
 
   return (
-    <div
-      style={{
-        marginTop: "220px",
-      }}
-    >
+    <div className="h-screen w-screen">
       <img
         src={background_image}
         style={{
@@ -59,160 +55,104 @@ const Password = () => {
           zIndex: -1,
         }}
       />
-      <div
-        style={{
-          position: "absolute",
-          top: "20px",
-          left: "20px",
-        }}
-      >
-        <img src={logo} style={{ width: "100px" }} />
-      </div>
-      <div
-        style={{
-          backgroundColor: "rgba(255, 255, 255, 0.9)",
-          padding: "10px",
-          borderRadius: "10px",
-          boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-          width: "80%",
-          maxWidth: "600px",
-          textAlign: "center",
-          marginTop: "100px",
-          marginLeft: "350px",
-          marginBottom: "20px",
-        }}
-      >
-        <div
-          className="signin-form"
-          style={{
-            width: "300px",
-            margin: "0 auto",
-            padding: "5rem",
-          }}
-        >
-          <form onSubmit={handleSubmit}>
-            <div>
-              <div>
-                {/* {errors.email_id && <p className="error" style={{
-                color: ' red',
-                fontSize: '0.8rem'
-
-              }}>{errors.email_id}</p>} */}
-                {/* <span color='red'>*</span> */}
-                <label
-                  htmlFor=" *email"
-                  style={{ marginLeft: "-200px", marginBottom: "30px" }}
-                >
-                  <span style={{ color: "red" }}> *</span>Email_id:
+      <div className="w-full h-full ">
+        
+        <img src={logo} style={{ width: "220px" }} />
+      
+      <div className=" h-full flex justify-center items-center">
+        <div className="bg-white  w-[550px] border rounded-lg  flex flex-col justify-center items-center shadow-lg">
+          <form
+            onSubmit={handleSubmit}
+            className="w-full h-full flex justify-center my-8"
+          >
+            <div className="w-[60%] h-full flex flex-col ">
+              <div className=" flex items-center justify-between  my-5">
+                <label htmlFor=" *email" className="text-[18px]">
+                  <span className="text-red-600"> *</span>Email/Phone
                 </label>
-
                 <input
                   type="email_id"
                   id="email_id"
                   value={email_id}
                   onChange={(e) => setEmail_id(e.target.value)}
+                  className="p-2 border border-gray-500 rounded-lg"
                   style={{
-                    marginBottom: "5px",
-                    padding: "5px",
-                    border: "1px solid #ccc",
-                    borderRadius: "5px",
-                    marginLeft: "20px",
-                    marginBottom: "20px",
                     ...(errors.email_id && { border: "1px solid red" }),
                   }}
                 />
               </div>
-            </div>
-            <div>
-              <label htmlFor="password" style={{ marginLeft: "-200px" }}>
+              {/* <div className=" flex items-center justify-between my-2 ">
+                <label htmlFor="password" className="text-[18px]">
+                  <span className="text-red-600">*</span>Password
+                </label>
+                <input
+                  type="password"
+                  id="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="p-2 border border-gray-500 rounded-lg"
+                  style={{
+                    ...(errors.password && { border: "1px solid red" }),
+                  }}
+                />
+              </div> */}
+
+              <div className="flex justify-center my-2">
+                <button
+                  type="submit"
+                  className="text-white bg-blue-900 border rounded-lg py-3 px-9 cursor-pointer font-semibold text-[18px] "
+                >
+                  <Link to='/changepassword'>
+                  Submit
+                  </Link>
+                </button>
+              </div>
+
+              <div className=" text-[18px] my-4 flex justify-center">
                 {" "}
-                <span style={{ color: "red" }}>*</span>Password:
-              </label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                style={{
-                  marginBottom: "5px",
-                  padding: "5px",
-                  border: "1px solid #ccc",
-                  borderRadius: "5px",
-                  marginLeft: "15px",
-                  marginBottom: "20px",
-                  ...(errors.password && { border: "1px solid red" }),
-                }}
-              />
-            </div>
+                {/* <span className="text-black">Note :</span>*  */}
+                Having trouble logging in get help
+              </div>
 
-            <div
-              style={{ color: "red", marginLeft: "-35px", marginTop: "10px" }}
-            >
-              {" "}
-              <span
-                style={{
-                  position: "absolute",
-                  marginLeft: "-55px",
-                  color: "black",
-                }}
-              >
-                Note :
-              </span>
-              * Fields are mandatory
-            </div>
-
-            <button
-              type="submit"
-              style={{
-                padding: "10px",
-                border: "none",
-                borderRadius: " 5px",
-                backgroundColor: "#202878",
-                color: "white",
-                cursor: "pointer",
-                margin: "10px",
-                marginTop: "10px",
-              }}
-            >
-              Submit
-            </button>
-            <div>
-              <span
-                style={{
-                  color: "black",
-                  position: "absolute",
-                  marginLeft: "-160px",
-                  marginBottom: "10px",
-                  marginTop: "5px",
-                }}
-              >
-                {" "}
-                Forget your password{" "}
-                <Link to="/Reset" style={{ textDecoration: "none" }}>
-                  Reset
-                </Link>
-              </span>
-
-              <div>
+              {/* <div>
                 <span
                   style={{
                     color: "black",
                     position: "absolute",
                     marginLeft: "-160px",
-                    marginBottom: "-10px",
-                    marginTop: "30px",
+                    marginBottom: "10px",
+                    marginTop: "5px",
                   }}
                 >
                   {" "}
-                  Having trouble logging in{" "}
-                  <Link to="/get help" style={{ textDecoration: "none" }}>
-                    get help
+                  Forget your password{" "}
+                  <Link to="/Reset" style={{ textDecoration: "none" }}>
+                    Reset
                   </Link>
                 </span>
-              </div>
+
+                <div>
+                  <span
+                    style={{
+                      color: "black",
+                      position: "absolute",
+                      marginLeft: "-160px",
+                      marginBottom: "-10px",
+                      marginTop: "30px",
+                    }}
+                  >
+                    {" "}
+                    Having trouble logging in{" "}
+                    <Link to="/get help" style={{ textDecoration: "none" }}>
+                      get help
+                    </Link>
+                  </span>
+                </div>
+              </div> */}
             </div>
           </form>
         </div>
+      </div>
       </div>
     </div>
   );

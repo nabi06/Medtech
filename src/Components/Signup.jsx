@@ -145,7 +145,6 @@ const Signup = () => {
           <div>
             <div style={{ display: "flex", flexDirection: "row" }}>
               <div>
-                {/* {errors.FullName && <div style={errorStyle}>{errors.FullName}</div>} */}
 
                 <input
                   id="FullName"
@@ -170,9 +169,7 @@ const Signup = () => {
                   style={{
                     ...inputStyle,
                     marginLeft: "20px",
-                    ...(errors.User_Id && {
-                      border: "1px solid red",
-                    }),
+                    ...(errors.User_Id && { border: "1px solid red" }),
                   }}
                   required
                 />
@@ -323,13 +320,14 @@ const Signup = () => {
                   name="upnmember"
                   onChange={handleInputChange}
                   style={{
-                    paddingTop: "-60px",
-                    marginBottom: "-120px",
+                    paddingTop: "-50px",
+                    marginBottom: "-100px",
                     marginLeft: "-22px",
-                    marginRight: "10px",
+                    marginRight: "12px",
                     position: "absolute",
                     flexDirection: "row",
                     display: "flex",
+                    marginTop:'5px'
                   }}
                 />
                 Please accept PharmEtrade{" "}
@@ -548,7 +546,7 @@ const Signup = () => {
                     border: "1px solid #ccc",
                     borderRadius: "4px",
                     width: "200px",
-                    height: "12px",
+                    height: "10px",
                     marginBottom: "5px",
                     marginTop: "10px",
                     marginLeft: "22px",
@@ -606,7 +604,7 @@ const Signup = () => {
                     border: "1px solid #ccc",
                     borderRadius: "4px",
                     width: "200px",
-                    height: "12px",
+                    height: "10px",
                     marginTop: "20px",
                     marginBottom: "5px",
                     marginLeft: "22px",
@@ -661,7 +659,7 @@ const Signup = () => {
                   border: "1px solid #ccc",
                   borderRadius: "4px",
                   width: "200px",
-                  height: "12px",
+                  height: "10px",
                   marginBottom: "5px",
                   marginTop: "20px",
                   marginLeft: "22px",
@@ -795,7 +793,7 @@ const Signup = () => {
                     border: "1px solid #ccc",
                     borderRadius: "4px",
                     width: "200px",
-                    height: "12px",
+                    height: "10px",
                     marginBottom: "5px",
                     marginLeft: "60px",
                     fontSize: "16px",
@@ -821,7 +819,7 @@ const Signup = () => {
                     border: "1px solid #ccc",
                     borderRadius: "4px",
                     width: "220px",
-                    height: "12px",
+                    height: "10px",
                     marginBottom: "5px",
                     marginTop: "80px",
                     marginLeft: "22px",
@@ -852,7 +850,7 @@ const Signup = () => {
     border: "1px solid #ccc",
     borderRadius: "4px",
     width: "200px",
-    height: "12px",
+    height: "10px",
     marginBottom: "5px",
     marginLeft: "60px",
   };
@@ -878,7 +876,7 @@ const Signup = () => {
 
   const selectStyle = {
     width: "200px",
-    height: "12px",
+    height: "10px",
     marginLeft: "2px",
     border: "1px solid #ccc",
     borderRadius: "4px",
@@ -888,7 +886,7 @@ const Signup = () => {
     border: "1px solid #ccc",
     borderRadius: "4px",
 
-    height: "12px",
+    height: "10px",
     marginBottom: "-10px",
     // marginLeft: '60px'
   };
@@ -896,7 +894,13 @@ const Signup = () => {
   return (
     <div style={containerStyle}>
       <div style={logoContainerStyle}>
+        {/* <Link to='/'>
         <img src={logoImage} alt="Logo" style={logoStyle} />
+        </Link> */}
+        {/* <Link to='/'>
+        <img src={logoImage} style={logoStyle} />
+        </Link> */}
+
       </div>
       <div style={backgroundContainerStyle}>
         <img
@@ -904,6 +908,16 @@ const Signup = () => {
           alt="Background"
           style={backgroundImageStyle}
         />
+
+<div style={{
+        position: 'absolute',
+        top: '20px',
+        left: '20px',
+      }}>
+        <Link to='/'>
+          <img src={logoImage} alt="Logo" style={{ width: '180px', }} />
+        </Link>
+      </div>
         <div style={formContainerStyle}>
           <h1 style={titleStyle}>SignUp</h1>
           <div style={stepperContainerStyle}>
@@ -991,9 +1005,9 @@ const logoContainerStyle = {
   left: "20px",
 };
 
-const logoStyle = {
-  width: "100px",
-};
+// const logoStyle = {
+//   width: "180px",
+// };
 
 const backgroundContainerStyle = {
   display: "flex",

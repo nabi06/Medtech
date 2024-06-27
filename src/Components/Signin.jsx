@@ -10,7 +10,7 @@ const OTPInput = ({ length, onChangeOTP }) => {
   const inputRefs = useRef([]);
 
   const handleChange = (element, index) => {
-    const value = element.value.replace(/[^0-9]/g, ""); // Allow only numeric input
+    const value = element.value.replace(/[^0-9]/g, ""); 
     if (value) {
       const newOTP = [...otp];
       newOTP[index] = value;
@@ -31,7 +31,7 @@ const OTPInput = ({ length, onChangeOTP }) => {
   };
 
   return (
-    <div style={{ display: "flex", marginLeft: "250px", marginTop: "-50px" }}>
+    <div style={{ display: "flex" }}>
       {otp.map((data, index) => (
         <input
           key={index}
@@ -43,7 +43,7 @@ const OTPInput = ({ length, onChangeOTP }) => {
             e.key === "Backspace" && handleBackspace(e.target, index)
           }
           ref={(el) => (inputRefs.current[index] = el)}
-          style={otpStyle}
+          className="w-[22px] h-[22px] flex  border rounded-md border-gray-500  mx-1"
         />
       ))}
     </div>
@@ -91,11 +91,7 @@ const Signin = () => {
   };
 
   return (
-    <div
-      style={{
-        marginTop: "220px",
-      }}
-    >
+    <div className="h-screen w-screen">
       <img
         src={background_image}
         style={{
@@ -108,201 +104,97 @@ const Signin = () => {
           zIndex: -1,
         }}
       />
-      <div
-        style={{
-          position: "absolute",
-          top: "20px",
-          left: "20px",
-        }}
-      >
-        <img src={logo} style={{ width: "100px" }} />
-      </div>
-      <div
-        style={{
-          backgroundColor: "rgba(255, 255, 255, 0.9)",
-          padding: "10px",
-          borderRadius: "10px",
-          boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
-          width: "80%",
-          maxWidth: "600px",
-          textAlign: "center",
-          marginTop: "130px",
-          marginLeft: "350px",
-          marginBottom: "20px",
-        }}
-      >
-        <div
-          className="signin-form"
-          style={{
-            width: "300px",
-            margin: "0 auto",
-            padding: "2rem",
-          }}
-        >
-          <h2
-            style={{
-              color: "#202878",
-              marginBottom: "30px",
-              fontSize: "20px",
-              fontWeight: "bold",
-            }}
-          >
-            Sign-In
-          </h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <div>
-                {/* {errors.email_id && <p className="error" style={{
-                color: ' red',
-                fontSize: '0.8rem'
 
-              }}>{errors.email_id}</p>} */}
-                {/* <span color='red'>*</span> */}
-                <label
-                  htmlFor=" *email"
-                  style={{ marginLeft: "-100px", marginBottom: "30px" }}
-                >
-                  <span style={{ color: "red" }}> *</span>Email/Phone
-                </label>
+      <div className="w-full h-full ">
+        <Link to="/">
+          <img src={logo} style={{ width: "220px" }} />
+        </Link>
+        <div className=" h-full flex justify-center items-center">
+          <div className="bg-white w-[550px] border rounded-lg  flex flex-col justify-center items-center shadow-lg">
+            <h2 className="text-blue-900 text-[25px] font-bold my-10">
+              Sign-In
+            </h2>
+            <form
+              onSubmit={handleSubmit}
+              className="w-full h-full flex justify-center"
+            >
+              <div className="w-[60%] h-full flex flex-col ">
+                <div className=" flex items-center justify-between  my-5">
+                  <label htmlFor=" *email" className="text-[18px]">
+                    <span className="text-red-600"> *</span>Email/Phone
+                  </label>
+                  <input
+                    type="email_id"
+                    id="email_id"
+                    value={email_id}
+                    onChange={(e) => setEmail_id(e.target.value)}
+                    className="p-2 border border-gray-500 rounded-lg"
+                    style={{
+                      ...(errors.email_id && { border: "1px solid red" }),
+                    }}
+                  />
+                </div>
+                <div className=" flex items-center justify-between my-2 ">
+                  <label htmlFor="password" className="text-[18px]">
+                    <span className="text-red-600">*</span>Password
+                  </label>
+                  <input
+                    type="password"
+                    id="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    className="p-2 border border-gray-500 rounded-lg"
+                    style={{
+                      ...(errors.password && { border: "1px solid red" }),
+                    }}
+                  />
+                </div>
 
-                <input
-                  type="email_id"
-                  id="email_id"
-                  value={email_id}
-                  onChange={(e) => setEmail_id(e.target.value)}
-                  style={{
-                    marginBottom: "5px",
-                    padding: "5px",
-                    border: "1px solid #ccc",
-                    borderRadius: "5px",
-                    marginLeft: "20px",
-                    marginBottom: "20px",
-                    ...(errors.email_id && { border: "1px solid red" }),
-                  }}
-                />
+                <div className="flex justify-between items-center my-4">
+                  <h5 className="text-[18px] ml-1">Enter OTP</h5>
+                  <OTPInput length={6} onChangeOTP={handleOTPChange} />
+                </div>
+
+                <div className="text-red-500 text-[18px] my-4 flex justify-center">
+                  {" "}
+                  <span className="text-black">Note :</span>* Fields are
+                  mandatory
+                </div>
+                <div className="flex justify-center my-2">
+                  <button
+                    type="submit"
+                    className="text-white bg-blue-900 border rounded-lg py-3 px-9 cursor-pointer font-semibold text-[18px] "
+                  >
+                    Sign In
+                  </button>
+                </div>
+
+                <div className="flex justify-center mb-2">
+                  <label className="text-[18px] text-blue-700">
+                    <Link
+                      to="/password"
+                    >
+                      Forget Password{" "}
+                    </Link>
+                  </label>
+                </div>
+                <div className="flex justify-center mb-8">
+                  <label className="text-[18px]">
+                    <Link
+                      to="/signup"
+                    >
+                      {" "}
+                      Create Account/ Signup
+                    </Link>
+                  </label>
+                </div>
               </div>
-            </div>
-            <div>
-              <label htmlFor="password" style={{ marginLeft: "-100px" }}>
-                {" "}
-                <span style={{ color: "red" }}>*</span>Password
-              </label>
-              <input
-                type="password"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                style={{
-                  marginBottom: "5px",
-                  padding: "5px",
-                  border: "1px solid #ccc",
-                  borderRadius: "5px",
-                  marginLeft: "38px",
-                  marginBottom: "20px",
-                  ...(errors.password && { border: "1px solid red" }),
-                }}
-              />
-              {/* {errors.password && <p className="error" style={{
-                color: 'red',
-                fontSize: '0.8rem'
-              }}>{errors.password}</p>} */}
-            </div>
-
-            {/* <OTP2/> */}
-            <div style={{ textAlign: "center", marginTop: "26px" }}>
-              <h5 style={{ marginLeft: "-250px", marginTop: "-15px" }}>
-                Enter OTP
-              </h5>
-              <OTPInput length={6} onChangeOTP={handleOTPChange} />
-            </div>
-
-            <div
-              style={{ color: "red", marginLeft: "-35px", marginTop: "30px" }}
-            >
-              {" "}
-              <span
-                style={{
-                  position: "absolute",
-                  marginLeft: "-55px",
-                  color: "black",
-                }}
-              >
-                Note :
-              </span>
-              * Fields are mandatory
-            </div>
-
-            <button
-              type="submit"
-              style={{
-                padding: "10px",
-                border: "none",
-                borderRadius: " 5px",
-                backgroundColor: "#202878",
-                color: "white",
-                cursor: "pointer",
-                margin: "10px",
-                marginTop: "10px",
-              }}
-            >
-              Sign In
-            </button>
-
-            <div>
-              <label
-                style={{
-                  marginRight: "10px",
-                  marginBottom: "80px",
-                  position: "absolute",
-                  marginLeft: "-236px",
-                  textDecorationLine: "none",
-                }}
-              >
-                <Link
-                  to="/password"
-                  style={{ textDecoration: "none", color: "blue" }}
-                >
-                  Forget Password{" "}
-                </Link>
-              </label>
-            </div>
-            <div>
-              <label
-                style={{
-                  marginRight: "10px",
-                  marginBottom: "80px",
-                  position: "absolute",
-                  marginLeft: "96px",
-                  textDecorationLine: "none",
-                }}
-              >
-                <Link
-                  to="/Changepassword"
-                  style={{ textDecoration: "none", color: "blue" }}
-                >
-                  change Password{" "}
-                </Link>
-              </label>
-            </div>
-          </form>
+            </form>
+          </div>
         </div>
       </div>
     </div>
   );
 };
-const otpStyle = {
-  width: "20px",
-  height: "20px",
-  marginLeft: "-185px",
-  // margin: "0 3px",
-  fontSize: "12px",
-  marginBottom: "-10px",
-  display: "flex",
-  marginTop: "27px",
-  textAlign: "center",
-  border: "1px solid #ddd",
-  borderRadius: "4px",
-  //   marginTop:'5px',
-  marginRight: "188px",
-};
+
 export default Signin;

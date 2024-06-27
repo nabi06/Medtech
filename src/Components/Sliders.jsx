@@ -65,7 +65,7 @@ function Sliders() {
   const mobiles = [mobile, mobile, mobile, mobile, mobile];
   const screens = [mask, covid, covid, mask];
   const { pop } = useNavbarContext();
-  const [showAll, setShowAll] = useState(screens.slice(0, 2));
+  const [showAll, setShowAll] = useState(screens.slice(0, 4));
   const [curIndex, setCurIndex] = useState(0);
   const [visibleImages, setVisibleImages] = useState(images.slice(0, 5));
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -108,7 +108,17 @@ function Sliders() {
       setCurrentIndex(previousInd);
     }
   };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
+
   return (
+    <>
     <div className="pl-20">
       <div className="flex flex-col justify-center gap-10 mt-5 ">
         {/* <button className="text-xl "><img src={covid} className='w-24'/></button> */}
@@ -148,10 +158,10 @@ function Sliders() {
             </div>
           ))}
         </Carousel> */}
-        <div className=" md:grid md:grid-cols-3 md:gap-48  md:w-screen xl:flex xl:items-center ml-20 xl:flex-row xl:gap-20 xl:w-full ">
+        <div className=" md:grid md:grid-cols-3  md:w-screen xl:flex xl:items-center ml-20 xl:flex-row xl:gap-4 xl:w-full ">
           {showAll.map((items) => (
-            <div style={{ width: "65vh" }}>
-              <img src={items} className="md:w-96" />
+            <div style={{ width: "45vh" }}>
+              <img src={items} className="md:w-80 md:h-52 rounded-lg" />
             </div>
           ))}
         </div>
@@ -298,6 +308,8 @@ function Sliders() {
         </div>
       </div>
     </div>
+    <div className="bg-blue-900 mt-8 cursor-pointer text-white font-semibold p-4 flex justify-center text-[20px]" onClick={scrollToTop}>Back To Top</div>
+    </>
   );
 }
 

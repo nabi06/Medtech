@@ -16,9 +16,10 @@ import { MdOutlineMail } from "react-icons/md";
 import { CiDiscount1 } from "react-icons/ci";
 import { FiShoppingCart } from "react-icons/fi";
 import { TbSquareRoundedCheckFilled } from "react-icons/tb";
-import product from "../assets/Product_icon.png";
-import phone from "../assets/phone_icon.png";
-import report from "../assets/report_icon.png";
+import product from '../assets/Icons/Product_icon.png';
+import phone from '../assets/Icons/phone_icon.png';
+import report from '../assets/Icons/report_icon.png';
+import ScrollToTop from "./ScrollToTop";
 
 // const cartItems = [
 //   { id: 1, name: "Item 1", quantity: 2 },
@@ -360,15 +361,15 @@ function Items({ onClose, topMargin, addCart, cartItems, setCartItems }) {
                   <p className="hover:text-red-600">Company Website</p>
                   <div className="flex flex-col">
                     <div className="flex  items-center space-x-2 hover:text-red-500">
-                      <img src={product} className="w-fit h-10" />
+                      <img src={product} className="w-fit h-10"/>
                       <span className=" font-semibold">17 PRODUCTS</span>
                     </div>
                     <div className="flex items-center space-x-2 hover:text-red-500">
-                      <img src={phone} className="w-fit h-10" />
+                      <img src={phone} className="w-fit h-10"/>
                       <span>Contact Seller</span>
                     </div>
                     <div className="flex items-center space-x-2 hover:text-red-500">
-                      <img src={report} className="w-fit h-8" />
+                      <img src={report} className="w-fit h-8"/>
                       <span>Report Product</span>
                     </div>
                   </div>
@@ -470,6 +471,7 @@ function Items({ onClose, topMargin, addCart, cartItems, setCartItems }) {
           </div>
         )}
       </div>
+      <ScrollToTop/>
     </div>
   );
 }

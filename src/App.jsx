@@ -13,12 +13,25 @@ import Signup from "./Components/Signup";
 import OTP2 from "./Components/OTP2";
 import Password from "./Components/Password";
 import Changepassword from "./Components/Changepassword";
+import Signin from "./Components/Signin";
 import Checkout from "./Components/Checkout";
+import Order from "./Components/Order";
+import Wishlist from "./Components/Wishlist";
+import ScrollToTop from "./Components/ScrollToTop";
+import AdminNav from "./Components/DashboardAdmin/AdminNav";
+import AdminPanel from "./Components/DashboardAdmin/AdminPanel";
+import AddProducts from "./Components/DashboardAdmin/AddProducts";
+import Sidebar from "./Components/DashboardAdmin/SideBar";
+import Dashboard from "./Components/DashboardAdmin/Dashboard";
+import Orders from "./Components/DashboardAdmin/Orders";
+import Customers from "./Components/DashboardAdmin/Customers";
+import Earnings from "./Components/DashboardAdmin/Earnings";
 
 function App() {
   const [count, setCount] = useState(0);
   console.log(window.location.href.includes("/products"));
   const [topMargin, setTopMargin] = useState(0);
+  const [wishItems, setWishItems] = useState([]);
   // Ref for the top fixed div
   const topDivRef = useRef(null);
   useEffect(() => {
@@ -31,17 +44,32 @@ function App() {
     setCartItems([...cartItems, prolist]);
   }
   console.log(cartItems);
+
+  function wishList(prolist) {
+    setWishItems([...wishItems, prolist]);
+  }
+  console.log(wishItems);
   const location = useLocation();
   return (
     <NavbarProvider>
-      {location.pathname !== "/signup" && <Nav topDivRef={topDivRef} />}
-      {/* {location.pathname !== "/signin" && <Nav topDivRef={topDivRef} />} */}
+      {location.pathname !== "/login" &&
+        location.pathname !== "/signup" &&
+        location.pathname !== "/password" &&
+        location.pathname !== "/changepassword" &&
+        location.pathname !== "/admin" && 
+        location.pathname !== "/admin/orders" &&
+        location.pathname !== "/admin/addproducts" &&
+        location.pathname !== "/admin/customers" &&
+        location.pathname !== "/admin/earnings" &&
+        (
+          <Nav topDivRef={topDivRef} cartItems={cartItems} />
+        )}
       <Routes>
         <Route path="/signup" element={<Signup />} />
-
+        <Route path="/login" element={<Signin />} />
         <Route path="/otp2" element={<OTP2 />} />
         <Route path="/password" element={<Password />} />
-        <Route path="/Changepassword" element={<Changepassword />} />
+        <Route path="/changepassword" element={<Changepassword />} />
         <Route
           path="/cart"
           element={
@@ -52,13 +80,52 @@ function App() {
             />
           }
         />
-        <Route path="/products" element={<Products addCart={addCart} />} />
+        <Route
+          path="/products"
+          element={<Products addCart={addCart} wishList={wishList} />}
+        />
+        <Route path="/checkout" element={<Checkout topMargin={topMargin} />} />
+        <Route path="/order" element={<Order topMargin={topMargin} />} />
         <Route path="/pops" element={<Product />} />
         <Route path="/app" element={<Landing topMargin={topMargin} />} />
         <Route path="/" element={<Landing topMargin={topMargin} />} />
         <Route path="/detailspage/:id" element={<Items addCart={addCart} />} />
-        <Route path="/checkout" element={<Checkout topMargin={topMargin} />} />
+        <Route
+          path="/wishlist"
+          element={
+            <Wishlist
+              topMargin={topMargin}
+              wishItems={wishItems}
+              setWishItems={setWishItems}
+            />
+          }
+        />
+        <Route element = {<AdminPanel/>}>
+
+          <Route path="/admin" element={<Dashboard />} />
+          <Route path="/admin/orders" element={<Orders />} />
+          <Route path="/admin/addproducts" element={<AddProducts />} />
+          <Route path="/admin/customers" element={<Customers/>}/>
+          <Route path="/admin/earnings" element={<Earnings/>}/>
+        </Route>
+
+        {/* <Route
+          path="/admin/*"
+          element={
+            <div className="flex h-screen bg-gray-200">
+              <Sidebar />
+              <div className="flex-1 flex flex-col">
+                <AdminNav />
+                <Routes>
+                  <Route path="dashboard" element={<Dashboard />} />
+                  <Route path="addproducts" element={<AddProducts />} />
+                </Routes>
+              </div>
+            </div>
+          }
+        /> */}
       </Routes>
+      {/* <ScrollToTop/> */}
       {/* <Landing2 />
         <Sliders />
         <Footers /> */}

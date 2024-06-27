@@ -8,7 +8,7 @@ import Items from "./Items";
 import { useNavbarContext } from "./NavbarContext";
 import { useNavigate } from "react-router-dom";
 
-function PRight({ topMargin, addCart }) {
+function PRight({ topMargin, addCart, wishList }) {
   const { pop, setPop } = useNavbarContext();
   const navigate = useNavigate();
   const images = Array(8).fill(nature);
@@ -35,6 +35,17 @@ function PRight({ topMargin, addCart }) {
       ratesupn: "$45.00",
     };
     addCart(prolist);
+  }
+  function handleClick(index) {
+    const prolist = {
+      id: index,
+      src: images[index],
+      price: "$50.99",
+      rate: "SKU 6545555",
+      rates: "UPN member price:",
+      ratesupn: "$45.00",
+    };
+    wishList(prolist);
   }
 
   return (
@@ -84,7 +95,8 @@ function PRight({ topMargin, addCart }) {
                 />
               </li>
               <li>
-                <img src={fav} alt="Favorite" className="size-8" />
+                <img src={fav} alt="Favorite" className="size-8"
+                onClick={()=> handleClick(index)} />
               </li>
               <li>
                 <img src={other} alt="Other" className="size-8" />

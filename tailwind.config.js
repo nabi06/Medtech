@@ -6,6 +6,10 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['"PT Sans"', 'sans-serif'],
+        ubuntu: ['Ubuntu', 'sans-serif'],
+      },
       colors: {
         'custom-blue': '#98C8F4',  // Custom color name and value
         'text-blue':'#061B4E',
@@ -24,12 +28,7 @@ export default {
         'fonts':'#174363',
         'inp':'#F3FAFE',
         'arr':'#41CDCE',
-        'ink':'#2020D3',
-        'check':'#F2F3F5',
-        'order':'#FAFAFA',
-        'cart':'#25AEB1',
-        'place':'#82C846',
-        'car':'#42CDCE'
+        'ink':'#2020D3'
       },
       backgroundImage: {
         'colors': 'linear-gradient(to right, #ADD8E1, #7DC2CB, #A0D2D9, #6AB7C1)'
