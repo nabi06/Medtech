@@ -1,3 +1,5 @@
+
+
 import React from "react";
 import { CiMenuKebab } from "react-icons/ci";
 
@@ -22,16 +24,16 @@ const Earnings = () => {
   ];
 
   return (
-    <div className=" pl-2 bg-gray-100 w-[calc(100%-288px)] h-full justify-center items-center">
-      <div className=" w-[95%] h-full ">
+    <div className="  w-[calc(100%-256px)] h-full flex  justify-center items-center">
+      <div className=" w-[95%] h-full mt-4">
         <div className=" flex justify-between">
-          <p className="text-2xl text-gray-800 font-medium">Earnings</p>
+          <p className="text-[22px] text-blue-900 font-medium">Earnings</p>
         </div>
         <div className=" flex my-4 -ml-8 justify-around items-center p-4">
           {stats.map((stat, index) => (
             <div
               key={index}
-              className="p-4 h-32 w-72  border rounded-lg shadow-lg flex justify-between items-center bg-white"
+              className="p-4 h-28 w-56  border rounded-lg shadow-lg flex justify-between items-center bg-white"
             >
               <div className="w-full">
                 <div className="flex justify-between items-center">
@@ -43,13 +45,12 @@ const Earnings = () => {
                   </div>
                 </div>
                 <div className="flex justify-between mt-2 items-center">
-                  <div className="text-3xl font-semibold">{stat.value}</div>
+                  <div className="text-2xl font-semibold">{stat.value}</div>
                   <div
                     className={`text-sm 
                      ${
                        stat.percentage > 0 ? " bg-green-400" : " bg-red-400"
-                     } p-2 rounded-lg`}
-                  >
+                     } p-1 rounded-lg`}>
                     ↑ {stat.percentage} %
                   </div>
                 </div>
@@ -57,8 +58,8 @@ const Earnings = () => {
             </div>
           ))}
         </div>
-        <div className="w-full flex justify-between p-8">
-          <div className=" flex justify-center w-fit bg-gray-100">
+        <div className=" flex w-full justify-between p-2">
+          <div className=" flex justify-center w-[80%] bg-gray-100">
             <EarningsChart />
           </div>
         </div>
@@ -81,10 +82,10 @@ const Earnings = () => {
             </div>
           </div>
 
-          <div className="p-4">
+          <div className="p-4 text[15px]">
             <h2 className="text-xl font-semibold mb-4">Latest Earnings</h2>
             <table className="min-w-full bg-white   border-gray-200">
-              <thead>
+              <thead className="bg-blue-900 text-white">
                 <tr>
                   <th className="py-2  px-4 border-b">Interval</th>
                   <th className="py-2 px-4 border-b border-gray-200">Orders</th>

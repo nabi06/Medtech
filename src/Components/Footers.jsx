@@ -3,13 +3,13 @@ import email from "../assets/email.png";
 
 function Footers() {
   return (
-    <div className="text-white bg-foot relative z-40">
+    <div className="text-white bg-blue-900 relative z-40">
       <div
-        className=" flex  justify-center gap-32 w-full p-10"
+        className=" flex  justify-center xl:gap-80 gap-32 w-full p-10"
         style={{ alignItems: "center" }}
       >
         {/* About Us Section */}
-        <div className="flex flex-col w-fit mr-18">
+        <div className="flex flex-col xl:text-xl w-fit mr-18">
           <p className="text-sm font-semibold mb-4">About Us</p>
           <p className="text-md font-thin w-fit ">
             PharmEtrade is a secure online marketplace for independent
@@ -25,11 +25,11 @@ function Footers() {
           </p>
           <p className="mt-4 text-md w-fit font-thin">
             Ready to learn more? Schedule a{" "}
-            <a href="#" className="text-white font-medium underline">
+            <a href="#" className="text-blue-900 font-medium underline">
               demo
             </a>{" "}
             or{" "}
-            <a href="#" className="text-white font-medium underline">
+            <a href="#" className="text-blue-900 font-medium underline">
               join
             </a>{" "}
             today!!

@@ -65,7 +65,7 @@ const EarningsChart = () => {
   };
 
   return (
-    <div className="p-4 max-w-lg mx-auto">
+    <div className="p-4 w-full mx-auto">
       <h2 className="text-2xl font-bold mb-4">Earnings Report</h2>
       <div className="relative h-96">
         <Bar data={data} options={options} />
