@@ -66,25 +66,25 @@ function Sliders() {
   const mobiles = [mobile, mobile, mobile, mobile, mobile];
   const screens = [mask, covid, covid, mask];
   const { pop } = useNavbarContext();
-  const [showAll, setShowAll] = useState(screens.slice(0, 2));
+  const [showAll, setShowAll] = useState(screens.slice(0, 4));
   const [curIndex, setCurIndex] = useState(0);
   const [visibleImages, setVisibleImages] = useState(images.slice(0, 5));
   const [currentIndex, setCurrentIndex] = useState(0);
   const handleNext = () => {
     console.log("prev");
-    const nextInd = curIndex + 2;
+    const nextInd = curIndex + 4;
     if (nextInd < screens.length) {
-      const nextVisibleImages = screens.slice(nextInd, nextInd + 2);
+      const nextVisibleImages = screens.slice(nextInd, nextInd + 4);
       setShowAll(nextVisibleImages);
       setCurIndex(nextInd);
     }
   };
 
   const handlePrevious = () => {
-    const previousInd = curIndex - 2;
+    const previousInd = curIndex - 4;
     console.log("next");
     if (previousInd >= 0) {
-      const previousVisibleImages = screens.slice(previousInd, previousInd + 2);
+      const previousVisibleImages = screens.slice(previousInd, previousInd + 4);
       setShowAll(previousVisibleImages);
       setCurIndex(previousInd);
     }
@@ -168,7 +168,7 @@ function Sliders() {
               </button>
             </div>
           </div>
-          <div className="md:grid md:grid-cols-3 md:grid-rows-2 xl:ml-12 xl:flex xl:justify-center  overflow-x-scroll snap-x snap-mandatory xl:gap-24 ">
+          <div className="md:grid md:grid-cols-3 md:grid-rows-2 xl:ml-12 xl:flex xl:justify-center  overflow-x-scroll snap-x snap-mandatory xl:gap-12 ">
             {visibleImages.map((img, index) => (
               <div key={index} className="snap-center shrink-0 ">
                 <div className="">
@@ -181,7 +181,7 @@ function Sliders() {
                     <h2 className="text-foot">Nature Mask</h2>
                     <h3 className="font-semibold text-box-blue">$99.00</h3>
                   </div>
-                  <div className="flex flex-row border justify-center bg-gray-100 border-gray-300 shadow-md rounded-xl p-2 lg:w-48 gap-5 items-center mt-3  mb-2">
+                  <div className="flex flex-row border justify-center bg-gray-100 border-gray-300 shadow-md rounded-xl p-2 md:w-48 gap-5 items-center mt-3  mb-2">
                     <div>
                       <img
                         src={addcart}

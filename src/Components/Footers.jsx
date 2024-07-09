@@ -25,11 +25,11 @@ function Footers() {
           </p>
           <p className="mt-4 text-md w-fit font-thin">
             Ready to learn more? Schedule a{" "}
-            <a href="#" className="text-blue-900 font-medium underline">
+            <a href="#" className="text-white font-medium underline">
               demo
             </a>{" "}
             or{" "}
-            <a href="#" className="text-blue-900 font-medium underline">
+            <a href="#" className="text-white font-medium underline">
               join
             </a>{" "}
             today!!
@@ -65,7 +65,7 @@ function Footers() {
                 </li>
               </ul>
             </div>
-            <div className="mr-10 text-md">
+            <div className="mr-10 xl:mr-0 text-md">
               <p className="text-md mb-4">Support & Service</p>
               <ul className="list-disc list-inside ">
                 <li>

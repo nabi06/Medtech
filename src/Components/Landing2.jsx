@@ -65,7 +65,7 @@ function Landing2() {
       </div>
       <div className="ml-24 md:flex md:gap-2 lg:items-center flex-row xl:justify-between ">
         <div
-          className=" bg-yellow-50 md:w-12 lg:w-36 xl:w-1/2 p-4 rounded-2xl transition duration-300 "
+          className=" bg-yellow-50 md:w-12 lg:w-36 xl:w-auto p-4 rounded-2xl transition duration-300 "
           style={{ width: "150vh", height: "fit-content" }}
         >
           <ul className="  space-y-2 xl:w-100% md:pb-6 md:text-lg xl:text-2xl xl:mt-6 font-light pl-4 ">
