@@ -24,7 +24,7 @@ function Landing({ topMargin }) {
             marginTop: `${topMargin}px`,
           }}
         >
-          <div className="xl:-mt-2">
+          <div className="xl:-mt-2P">
             <p className="text-left md:pt-6 lg:pt-14 md:ml-20  lg:ml-36 lg:text-4xl text-white w-fit">
               <div className=" bounce-in-top overflow-hidden">
                 <span className="text-4xl  text-white  font-extralight">
@@ -53,7 +53,7 @@ function Landing({ topMargin }) {
                   <span className=" font-medium ">Overstock</span>&{" "}
                 </p>
               </div>
-              <p className="text-white text-[26px]  bounce-in-top font-light">
+              <p className="text-white text-[26px] pb-2 bounce-in-top font-light">
                 Short Date Prescription Medications
               </p>
             </p>
